@@ -7,9 +7,6 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 import java.util.List;
 
-/**
- * Entity de compra
- */
 @Getter @Setter
 @Entity
 @Table(name = "compras")
@@ -31,7 +28,6 @@ public class PurchaseEntity {
 
     @Column(name = "medio_pago")
     private String paymentMethod;
-
 
     @OneToMany(mappedBy = "purchaseEntity", cascade = {CascadeType.ALL})
     private List<CarPurchaseEntity> carsPurchase;

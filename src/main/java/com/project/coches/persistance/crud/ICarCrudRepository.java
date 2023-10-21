@@ -8,8 +8,7 @@ import java.util.List;
 public interface ICarCrudRepository extends JpaRepository<CarEntity, Integer> {
 
     List<CarEntity> findAllByBrandCarId(Integer id);
-
-
     List<CarEntity> findAllByPriceLessThanEqualOrderByPriceAsc(Double price);
+    List<CarEntity> findByColor(String color);
 
 }

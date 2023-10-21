@@ -13,6 +13,8 @@ public interface ICarRepository {
 
     List<CarDto> getByIdBrandCar(Integer idBrandCar);
 
+    List<CarDto> getByCarColor(String color);
+
     List<CarDto> getCarsByPriceLessThan(Double price);
 
     Optional<CarDto> getCar(Integer idCar);

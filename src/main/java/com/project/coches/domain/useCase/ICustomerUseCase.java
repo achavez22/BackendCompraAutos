@@ -21,6 +21,5 @@ public interface ICustomerUseCase {
 
     Optional<CustomerDto> update(CustomerDto modifyCustomer);
 
-
     boolean delete(String  cardId);
 }

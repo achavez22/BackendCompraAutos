@@ -29,6 +29,11 @@ public class CarRepository implements ICarRepository {
     }
 
     @Override
+    public List<CarDto> getByCarColor(String color) {
+        return iCarMapper.toCarsDto(iCarCrudRepository.findByColor(color));
+    }
+
+    @Override
     public List<CarDto> getCarsByPriceLessThan(Double price) {
         return iCarMapper.toCarsDto(iCarCrudRepository.findAllByPriceLessThanEqualOrderByPriceAsc(price));
     }

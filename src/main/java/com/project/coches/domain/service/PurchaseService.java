@@ -19,7 +19,6 @@ import java.util.Optional;
 public class PurchaseService implements IPurchaseUseCase {
 
     private final IPurchaseRepository iPurchaseRepository;
-
     private final ICarRepository iCarRepository;
 
     @Override
@@ -35,7 +34,6 @@ public class PurchaseService implements IPurchaseUseCase {
     @Override
     public PurchaseResponseDto getByNumberBill(Integer numberBill) {
         PurchaseResponseDto purchaseResponseDto = iPurchaseRepository.getByNumberBill(numberBill);
-
         if (purchaseResponseDto == null) {
             throw new PurchaseNotExistException();
         }
@@ -49,9 +47,7 @@ public class PurchaseService implements IPurchaseUseCase {
 
         purchaseRequestDto.getCarsPurchase().forEach(carPurchase -> {
             CarDto carActual = iCarRepository.getCar(carPurchase.getCodeCar()).get();
-
             carActual.setStock(carActual.getStock() - carPurchase.getQuantity());
-
             iCarRepository.save(carActual);
         });
 

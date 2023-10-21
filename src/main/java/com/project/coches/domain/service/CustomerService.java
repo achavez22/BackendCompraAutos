@@ -15,9 +15,6 @@ import java.security.SecureRandom;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Servicio de cliente
- */
 @RequiredArgsConstructor
 @Service
 public class CustomerService implements ICustomerUseCase {
@@ -25,7 +22,6 @@ public class CustomerService implements ICustomerUseCase {
     private final ICustomerRepository iCustomerRepository;
 
     private final PasswordEncoder passwordEncoder;
-
 
     @Override
     public List<CustomerDto> getAll() {

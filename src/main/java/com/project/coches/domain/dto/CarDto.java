@@ -3,7 +3,8 @@ package com.project.coches.domain.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
+@Getter
+@Setter
 public class CarDto {
 
     private Integer codeCar;
@@ -20,12 +21,8 @@ public class CarDto {
     private String fuelType;
     private Integer numberSeats;
     private Integer traction;
-
     private String steering;
-
     private String category;
-
     private String imagePath;
-
     private Integer stock;
 }

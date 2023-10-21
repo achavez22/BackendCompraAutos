@@ -7,6 +7,5 @@ import lombok.Setter;
 public class AuthCustomerDto {
 
     private String email;
-
     private String password;
 }

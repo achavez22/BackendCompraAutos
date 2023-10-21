@@ -9,10 +9,7 @@ import java.util.List;
 public interface IPurchaseRepository {
 
     List<PurchaseResponseDto> getAll();
-
     List<PurchaseResponseDto> getByIdCustomer(String idCustomer);
-
     PurchaseResponseDto getByNumberBill(Integer numberBill);
-
     PurchaseBillResponseDto save(PurchaseRequestDto purchaseRequestDto);
 }
