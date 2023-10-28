@@ -15,7 +15,7 @@ import java.util.List;
 public class CarController {
     private final ICarUseCase iCarUseCase;
 
-
+    //Obtener coches
     @GetMapping()
     public ResponseEntity<List<CarDto>> getAll() {
         return ResponseEntity.ok(iCarUseCase.getAll());
@@ -25,7 +25,6 @@ public class CarController {
     public ResponseEntity<List<CarDto>> getByIdBrandCar(@PathVariable Integer idBrandCar) {
         return ResponseEntity.ok(iCarUseCase.getByIdBrandCar(idBrandCar));
     }
-
 
     @GetMapping(path = "/price/{priceCar}")
     public ResponseEntity<List<CarDto>> getCarsByPriceLessThan(@PathVariable Double priceCar) {
