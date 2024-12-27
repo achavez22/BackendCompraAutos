@@ -9,17 +9,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * Controlador rest de Marca Coche
- */
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(path = "/brands-car")
 public class BrandCarController {
-
-    /**
-     * Servicio de marca coche
-     */
     private final IBrandCarUseCase iBrandCarUseCase;
 
 
