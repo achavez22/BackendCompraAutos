@@ -14,7 +14,7 @@ import java.util.Optional;
 /**
  * Repositorio de marca coche
  */
-@RequiredArgsConstructor //Crea constructor con los atributos final
+@RequiredArgsConstructor
 @Repository
 public class BrandCarRepository implements IBrandCarRepository {
 

@@ -15,21 +15,22 @@ public class CustomerEntity {
     @Column(name = "cedula")
     private String cardId;
 
-    @Column(name = "nombre_completo")
+    @Column(name = "full_name")
     private String fullName;
 
-    @Column(name = "correo")
+    @Column(name = "email")
     private String email;
 
-    @Column(name = "numero_celular")
+    @Column(name = "phone_number")
     private Double numberCellphone;
 
-    @Column(name = "activo")
+    @Column(name = "active")
     private Integer active;
 
-    @Column(name = "contrasenia")
+    @Column(name = "password")
     private String password;
 
+    @Column(name = "rol")
     private String rol;
 
     @OneToMany(mappedBy = "customerEntity")

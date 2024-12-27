@@ -8,62 +8,64 @@ import java.util.List;
 
 @Getter @Setter
 @Entity
-@Table(name = "coches")
+@Table(name = "cars")
 public class CarEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "codigo_coche")
+    @Column(name = "car_code")
     private Integer codeCar;
 
-    @Column(name = "marca_coche_id")
+    @Column(name = "car_brand_id")
     private Integer brandCarId;
 
-    @Column(name = "referencia")
+    @Column(name = "reference")
     private String reference;
 
-    @Column(name = "precio")
+    @Column(name = "price")
     private Double price;
 
-    @Column(name = "anio_modelo")
+    @Column(name = "model")
     private Double modelYear;
 
+    @Column(name = "color")
     private String color;
 
-    @Column(name = "numero_caballos_fuerza")
+    @Column(name = "horsepower_number")
     private Double horsepower;
 
-    @Column(name = "cantidad_puertas")
+    @Column(name = "door_number")
     private Integer numberDoor;
 
-    @Column(name = "cilindraje")
+    @Column(name = "cylinder_capacity")
     private Double engineDisplacement;
 
-    @Column(name = "transmision")
+    @Column(name = "transmission")
     private String transmission;
 
-    @Column(name = "tipo_combustible")
+    @Column(name = "fuel_type")
     private String fuelType;
 
-    @Column(name = "cantidad_asientos")
+    @Column(name = "seat_quantity")
     private Integer numberSeats;
 
-    @Column(name = "traccion")
+    @Column(name = "traction")
     private Integer traction;
 
-    @Column(name = "direccion")
+    @Column(name = "direction")
     private String steering;
 
-    @Column(name = "categoria")
+    @Column(name = "category")
     private String category;
 
-    @Column(name = "ruta_imagen")
+    @Column(name = "image_path")
     private String imagePath;
 
+    @Column(name = "stock")
     private Integer stock;
 
     @ManyToOne
-    @JoinColumn(name = "marca_coche_id", insertable = false, updatable = false)
+    @JoinColumn(name = "car_brand_id", insertable = false, updatable = false)
     private BrandCarEntity brandCarEntity;
 
     @OneToMany(mappedBy = "carEntity")
