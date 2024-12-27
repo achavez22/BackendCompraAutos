@@ -48,7 +48,7 @@ public class JwtAuthenticationProvider {
         JWT.require(Algorithm.HMAC256(secretKey)).build().verify(token);
         CustomerDto exists = listToken.get(token);
         if (exists == null) {
-            throw new BadCredentialsException("Usuario no registrado.");
+            throw new BadCredentialsException("User not registered");
         }
 
         HashSet<SimpleGrantedAuthority> rolesAndAuthorities = new HashSet<>();
@@ -59,11 +59,11 @@ public class JwtAuthenticationProvider {
     public String deleteToken(String jwt) {
 
         if (!listToken.containsKey(jwt)) {
-            return "No existe token";
+            return "Token does not exist";
         }
 
         listToken.remove(jwt);
-        return "Sesión cerrada exitosamente";
+        return "The session has been closed";
     }
 
 }
