@@ -22,7 +22,7 @@ spring:
       on-profile: dev
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/autos_ventas
+    url: jdbc:postgresql://localhost:5432/sale_cars
     username: postgres
     password: samarmotas
 

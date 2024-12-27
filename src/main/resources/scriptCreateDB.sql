@@ -1,67 +1,67 @@
-create table clientes
+create table Customers
 (
     cedula          varchar(255) not null
         primary key,
-    activo          integer,
-    correo          varchar(255),
-    nombre_completo varchar(255),
-    numero_celular  double precision,
-    contrasenia     varchar(255),
+    active          integer,
+    email          varchar(255),
+    full_name varchar(255),
+    phone_number  double precision,
+    password     varchar(255),
     rol             varchar(255)
 );
 
-create table compras
+create table sales
 (
-    numero_factura serial
+    invoice_number serial
         primary key,
-    cliente_cedula varchar(255)
+    customer_cedula varchar(255)
         constraint fkauu0631j70fiv097sj24cylhe
-            references clientes,
-    fecha          timestamp(6),
-    medio_pago     varchar(255),
+            references Customers,
+    date          timestamp(6),
+    payment_method     varchar(255),
     total          double precision
 );
 
-create table marca_coche
+create table car_brand
 (
     id          serial
         primary key,
-    descripcion varchar(255)
+    description varchar(255)
 );
 
-create table coches
+create table cars
 (
-    codigo_coche           serial
+    car_code          serial
         primary key,
-    marca_coche_id         integer
+    car_brand_id         integer
         constraint fk4m5c9mn0806wd0n5po3uaef3k
-            references marca_coche,
-    categoria              varchar(255),
+            references car_brand,
+    category              varchar(255),
     color                  varchar(255),
-    cilindraje             double precision,
-    tipo_combustible       varchar(255),
-    numero_caballos_fuerza double precision,
-    ruta_imagen            varchar(255),
-    anio_modelo            double precision,
-    cantidad_puertas       integer,
-    cantidad_asientos      integer,
-    precio                 double precision,
-    referencia             varchar(255),
-    direccion              varchar(255),
-    traccion               integer,
-    transmision            varchar(255),
+    cylinder_capacity             double precision,
+    fuel_type       varchar(255),
+    horsepower_number double precision,
+    image_path            varchar(255),
+    model            double precision,
+    door_number      integer,
+    seat_quantity      integer,
+    price                 double precision,
+    reference             varchar(255),
+    direction              varchar(255),
+    traction               integer,
+    transmission            varchar(255),
     stock                  integer
 );
 
-create table coches_compras
+create table cars_sales
 (
-    coches_codigo_coche    integer not null
+    cars_sales_car_code   integer not null
         constraint fkh0l7s0kisxakvxjf45l79fh
-            references coches,
-    compras_numero_factura integer not null
+            references cars,
+    cars_sales_invoice_number integer not null
         constraint fkjk5rbyxmmqi3tygwadgaj6j6o
-            references compras,
-    cantidad               integer,
+            references sales,
+    amount               integer,
     total                  integer,
-    primary key (coches_codigo_coche, compras_numero_factura)
+    primary key (cars_sales_car_code, cars_sales_invoice_number)
 );
