@@ -20,7 +20,6 @@ public class JwtAuthenticationProvider {
 
     @Value("${jwt.secret.key}")
     private String secretKey;
-
     private HashMap<String, CustomerDto> listToken = new HashMap<>();
 
     public String createToken(CustomerDto customerJwt) {
@@ -31,7 +30,7 @@ public class JwtAuthenticationProvider {
 
         String tokenCreated = JWT.create()
                 .withClaim("cardId", customerJwt.getCardId())
-                .withClaim("fullname", customerJwt.getFullName())
+                .withClaim("fullName", customerJwt.getFullName())
                 .withClaim("numberCellPhone", String.valueOf(customerJwt.getNumberCellphone()))
                 .withClaim("email", customerJwt.getEmail())
                 .withClaim("rol", customerJwt.getRol())

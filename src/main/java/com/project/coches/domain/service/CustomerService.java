@@ -1,7 +1,7 @@
 package com.project.coches.domain.service;
 
 import com.project.coches.exception.CustomerExistsException;
-import com.project.coches.security.Roles;
+import com.project.coches.security.RolConstants;
 import com.project.coches.domain.dto.CustomerDto;
 import com.project.coches.domain.dto.ResponseCustomerDto;
 import com.project.coches.domain.repository.ICustomerRepository;
@@ -53,7 +53,7 @@ public class CustomerService implements ICustomerUseCase {
         String passwordGenerated = generateRandomPassword(10);
         newCustomer.setPassword(passwordEncoder.encode(passwordGenerated));
         newCustomer.setActive(1);
-        newCustomer.setRol(Roles.CUSTOMER);
+        newCustomer.setRol(RolConstants.CUSTOMER);
         iCustomerRepository.save(newCustomer);
 
         return new ResponseCustomerDto(passwordGenerated);

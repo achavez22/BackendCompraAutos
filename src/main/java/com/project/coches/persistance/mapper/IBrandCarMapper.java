@@ -13,11 +13,11 @@ public interface IBrandCarMapper {
 
     @Mapping(source = "id", target = "id")
     @Mapping(source = "description", target = "description")
-    BrandCarDto toMarcaCocheDto(BrandCarEntity marcaEntity);
+    BrandCarDto toBranCarDto(BrandCarEntity marcaEntity);
 
     @InheritInverseConfiguration
     @Mapping(target = "carEntities", ignore = true)
-    BrandCarEntity toMarcaCocheEntity(BrandCarDto marcaPojo);
+    BrandCarEntity toBranCarEntity(BrandCarDto brandCarDto);
 
-    List<BrandCarDto> toMarcasCocheDto(List<BrandCarEntity> marcasCocheEntity);
+    List<BrandCarDto> toBranCarListDto(List<BrandCarEntity> brandCarEntities);
 }

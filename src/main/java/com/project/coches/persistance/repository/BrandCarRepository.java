@@ -4,8 +4,10 @@ import com.project.coches.domain.dto.BrandCarDto;
 import com.project.coches.domain.repository.IBrandCarRepository;
 import com.project.coches.persistance.crud.IBrandCarCrudRepository;
 import com.project.coches.persistance.entity.BrandCarEntity;
+
 import com.project.coches.persistance.mapper.IBrandCarMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -23,19 +25,19 @@ public class BrandCarRepository implements IBrandCarRepository {
 
     @Override
     public List<BrandCarDto> getAll() {
-        return iBrandCarMapper.toMarcasCocheDto(iBrandCarCrudRepository.findAll());
+        return iBrandCarMapper.toBranCarListDto(iBrandCarCrudRepository.findAll());
     }
 
     @Override
     public Optional<BrandCarDto> getBrandCar(Integer id) {
         return iBrandCarCrudRepository.findById(id)
-                .map(iBrandCarMapper::toMarcaCocheDto);
+                .map(iBrandCarMapper::toBranCarDto);
     }
 
     @Override
     public BrandCarDto save(BrandCarDto newBrandCar) {
-        BrandCarEntity brandCarEntity = iBrandCarMapper.toMarcaCocheEntity(newBrandCar);
-        return iBrandCarMapper.toMarcaCocheDto(iBrandCarCrudRepository.save(brandCarEntity));
+        BrandCarEntity brandCarEntity = iBrandCarMapper.toBranCarEntity(newBrandCar);
+        return iBrandCarMapper.toBranCarDto(iBrandCarCrudRepository.save(brandCarEntity));
     }
 
     @Override
