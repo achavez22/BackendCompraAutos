@@ -6,7 +6,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class BrandCarDto {
-
     private Integer id;
     private String description;
 }
