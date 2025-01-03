@@ -9,14 +9,14 @@ import java.util.List;
 
 @Getter @Setter
 @Entity
-@Table(name = "marca_coche")
+@Table(name = "car_brand")
 public class BrandCarEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "descripcion")
+    @Column(name = "description")
     private String description;
 
     @OneToMany(mappedBy = "brandCarEntity", orphanRemoval = true)

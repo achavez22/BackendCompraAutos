@@ -50,7 +50,7 @@ dependencies {
 }
 
 bootJar {
-	archiveFileName = 'my-application.jar' // Nombre personalizado del archivo JAR
+	archiveFileName = 'my-application.jar' // name of the jar file
 }
 
 tasks.named('test') {

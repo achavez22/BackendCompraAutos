@@ -3,7 +3,7 @@ package com.project.coches.config;
 
 import com.project.coches.exception.AccessDeniedHandlerException;
 import com.project.coches.security.JwtAuthFilter;
-import com.project.coches.security.Roles;
+import com.project.coches.security.RolConstants;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -46,15 +46,15 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(requests ->
                         requests
                                 .requestMatchers("/auth/**", "/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
-                                //.requestMatchers(HttpMethod.GET, "/customers").hasAnyRole(Roles.CUSTOMER, Roles.ADMIN)
-                                .requestMatchers(HttpMethod.GET, "/customers/**").hasAnyRole(Roles.CUSTOMER, Roles.ADMIN)
-                                .requestMatchers(HttpMethod.DELETE, "/customers/**").hasRole(Roles.ADMIN)
+                                //.requestMatchers(HttpMethod.GET, "/customers").hasAnyRole(RolConstants.CUSTOMER, RolConstants.ADMIN)
+                                .requestMatchers(HttpMethod.GET, "/customers/**").hasAnyRole(RolConstants.CUSTOMER, RolConstants.ADMIN)
+                                .requestMatchers(HttpMethod.DELETE, "/customers/**").hasRole(RolConstants.ADMIN)
                                 //.requestMatchers(HttpMethod.DELETE, "/customers/**").hasAuthority("ELIMINAR_PRIVILEGE")
 
-                                .requestMatchers(HttpMethod.GET,"/cars/**").hasAnyRole(Roles.CUSTOMER, Roles.ADMIN)
-                                .requestMatchers(HttpMethod.POST, "/cars/**").hasRole(Roles.ADMIN)
+                                .requestMatchers(HttpMethod.GET,"/cars/**").hasAnyRole(RolConstants.CUSTOMER, RolConstants.ADMIN)
+                                .requestMatchers(HttpMethod.POST, "/cars/**").hasRole(RolConstants.ADMIN)
                                 //.requestMatchers("/cars").hasAuthority("COMPRAR_PRIVILEGE")
-                                //.requestMatchers("/customers").hasRole(Roles.ADMIN)
+                                //.requestMatchers("/customers").hasRole(RolConstants.ADMIN)
 
                                 //solo toma el primer filtro, ya no se puede anidar un rol con una autoridad
 
@@ -63,8 +63,6 @@ public class WebSecurityConfig {
                                 .anyRequest().authenticated()
 
                 );
-
-
         return http.build();
     }
 

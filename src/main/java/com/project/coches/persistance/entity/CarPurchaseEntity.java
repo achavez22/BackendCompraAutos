@@ -6,23 +6,23 @@ import lombok.Setter;
 
 @Getter @Setter
 @Entity
-@Table(name = "coches_compras")
+@Table(name = "cars_sales")
 public class CarPurchaseEntity {
 
     @EmbeddedId
     private CarPurchasePK id;
 
-    @Column(name = "cantidad")
+    @Column(name = "amount")
     private Integer quantity;
 
     private Integer total;
 
     @ManyToOne
     @MapsId(value = "purchaseNumberBill")
-    @JoinColumn(name = "compras_numero_factura", insertable = false, updatable = false)
+    @JoinColumn(name = "cars_sales_invoice_number", insertable = false, updatable = false)
     private PurchaseEntity purchaseEntity;
 
     @ManyToOne
-    @JoinColumn(name = "coches_codigo_coche", insertable = false, updatable = false)
+    @JoinColumn(name = "cars_sales_car_code", insertable = false, updatable = false)
     private CarEntity carEntity;
 }

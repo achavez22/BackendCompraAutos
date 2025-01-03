@@ -6,7 +6,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CarDto {
-
     private Integer codeCar;
     private Integer brandCarId;
     private String brandCarString;
