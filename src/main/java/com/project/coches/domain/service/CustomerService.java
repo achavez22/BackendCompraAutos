@@ -49,14 +49,15 @@ public class CustomerService implements ICustomerUseCase {
         if (getCustomerByCardId(newCustomer.getCardId()).isPresent() || getCustomerByEmail(newCustomer.getEmail()).isPresent()) {
             throw new CustomerExistsException();
         }
+        String passwordGenerated = Optional.ofNullable(newCustomer.getPassword())
+                                   .orElseGet(() -> generateRandomPassword(10));
 
-        String passwordGenerated = generateRandomPassword(10);
         newCustomer.setPassword(passwordEncoder.encode(passwordGenerated));
         newCustomer.setActive(1);
         newCustomer.setRol(RolConstants.CUSTOMER);
-        iCustomerRepository.save(newCustomer);
+        CustomerDto customerSave = iCustomerRepository.save(newCustomer);
 
-        return new ResponseCustomerDto(passwordGenerated);
+        return new ResponseCustomerDto(customerSave.getCardId(), customerSave.getFullName(), customerSave.getEmail(), passwordGenerated);
     }
 
     @Override
