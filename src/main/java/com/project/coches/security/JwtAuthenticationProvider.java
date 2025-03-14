@@ -20,7 +20,7 @@ public class JwtAuthenticationProvider {
 
     @Value("${jwt.secret.key}")
     private String secretKey;
-    private HashMap<String, CustomerDto> listToken = new HashMap<>();
+    private final HashMap<String, CustomerDto> listToken = new HashMap<>();
 
     public String createToken(CustomerDto customerJwt) {
 

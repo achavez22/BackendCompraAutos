@@ -13,7 +13,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(path = "/purchases")
+@RequestMapping(path = "v1/purchases")
 public class PurchaseController {
 
     private final IPurchaseUseCase iPurchaseUseCase;

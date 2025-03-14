@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(path = "/auth")
+@RequestMapping(path = "v1/auth")
 public class AuthController {
 
     private final IAuthUseCase iAuthUseCase;

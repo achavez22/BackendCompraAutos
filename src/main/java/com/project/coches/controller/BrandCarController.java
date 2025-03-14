@@ -12,7 +12,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(path = "/brands-car")
+@RequestMapping(path = "v1/brands-car")
 public class BrandCarController {
     private final IBrandCarUseCase iBrandCarUseCase;
 

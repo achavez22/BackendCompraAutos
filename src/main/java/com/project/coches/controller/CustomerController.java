@@ -11,7 +11,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(path = "/customers")
+@RequestMapping(path = "v1/customers")
 public class CustomerController {
 
     private final ICustomerUseCase iCustomerUseCase;
